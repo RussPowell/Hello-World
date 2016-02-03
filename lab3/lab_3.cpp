@@ -67,10 +67,9 @@ string Goldilocks(string item, int number) {
   		story = "This bed is just right!";
   	}
   }
-  cout<< story<<"\n";//I am missing something as I cannot 'return'
-  return (story);    // story using the return command.  'Cout' works.
+  //cout<< story<<"\n";//I am missing something as I cannot 'return'
+  return story;    // story using the return command.  'Cout' works.
 }
-
 
 /*
  * Compute the outcome of a round of a rock-scissor-paper game. Lowercase or
@@ -124,23 +123,23 @@ int RockScissorPaper(char player_one, char player_two) {
 		case 'P':
 			if (player_one == player_two)
 			{
-				cout << "It's a tie, lets go again!\n ";
+				return 3;
 			}
 			else if (player_two == 's')
 			{
-				cout << "Scissors cuts Paper, player2 wins!\n ";
+				return 2;
 			}
 			else if (player_two == 'l')
 			{
-				cout << "Lizard eats Paper, player2 wins! \n";
+				return 2;
 			}
 			else if (player_two == 'r')
 			{
-				cout << "Paper covers Rock,player1 wins!\n";
+				return 1;
 			}
 			else if (player_two == 'v')
 			{
-				cout << "Paper disproves Spock,player1 wins!\n";\
+				return 1;
 			}
 			break;
 			
@@ -148,24 +147,24 @@ int RockScissorPaper(char player_one, char player_two) {
 		case 'S':
 			if (player_one == player_two)
 			{
-				cout << "It's a tie, lets go again! \n";
+				return 3;
 			}
 			else if (player_two == 'r')
 			{
-				cout << "Rock crushes Scissors, player2 wins!\n";
+				return 2;
 			}
 			else if (player_two == 'v')
 			{
-				cout << "Spock smashes Scissors, player2 wins!\n"; 
+				return 2; 
 			}
             else if (player_two == 'l')
 			{
-				cout << "Scissors decapitates Lizard,player1 wins!\n";
+				return 1;
 
 			}
 			else if (player_two == 's')
 			{
-				cout << "Scissors cut Paper,player1 wins!\n";
+				return 1;
 
 			}
 			break;
@@ -173,47 +172,46 @@ int RockScissorPaper(char player_one, char player_two) {
 		case 'L':
 			if (player_one == player_two)
 			{
-				cout << "It's a tie, lets go again! \n";
+				return 3;
 			}
 			else if (player_two == 'r')
 			{
-				cout << "Rock Crushes Lizard, player2 wins! \n";
+				return 2;
 			}
 			else if (player_two == 's')
 			{
-				cout << "Scissors decapitate Lizard, player2 wins!\n";
+				return 2;
 			}
 			else if (player_two == 'p')
 			{
-				cout << "Lizard eats Paper,player1 wins!\n";
-
+				return 1;
 			}
 			else if (player_two == 'v')
 			{
-				cout << "Lizard poisons Spock,player1 wins!\n";
+				return 1;
 			}
 			break;
 		case 'v':
 		case 'V':
 			if (player_one == player_two)
 			{
-				cout << "It's a tie, lets go again! \n";
+				return 3;
 			}
 			else if (player_two == 'l')
 			{
-				cout << "Lizard poisons Spock, player2 wins!\n ";
+				return 2;
 			}
 			else if (player_two == 'p')
 			{
-				cout << "Paper disproves Spock, player2 wins! \n";
+				return 2;
 			}
 			else if (player_two == 'r')
 			{
-				cout << "Spock vaporizes Rock,player1 wins!\n";
+				return 1;
 			}
 			else if(player_two == 's')
 			{
-				cout << "Spock smashes Scissors,player1 wins!\n";
+				return 1;
 			}
 			break;
 			default:
@@ -234,15 +232,17 @@ return 0;//as I gather, return is for error checking; return 0 if it works, retu
  * @param string input - The string that will be converted to all lowercase
  * @return string - a string containing the converted input string
  */
-/*string ToLower(string input) {
- // CODE HERE
-
- for (int i = 0; i <= input.length; i++){
- 	string returnString[i] = tolower(input[i]);
-                             }
-cout<< returnString << "\n";
-return 0;
-}*/
+string ToLower(string input) {
+  // CODE HERE
+  string OutPut;
+  int count = input.length();
+  for (int i = 0; i <= count; i++){
+                                    
+  OutPut[i] = tolower(input[i]);
+  }
+  cout << OutPut;
+ 	return OutPut;
+}
 
 /*
  * Return the input string with all characters converted to uppercase.
@@ -269,7 +269,7 @@ int main(){
     cin >> number;
     if (number < 1 || number > 3){
         number = 3;}
-    Goldilocks(item, number);
+    cout << Goldilocks(item, number) << "\n";
     
     char PlayerOne, PlayerTwo;
     cout << "Let's play 'Rock, Paper, Scissors \n";
@@ -284,7 +284,9 @@ int main(){
 	cin >>PlayerTwo;
 	char first = tolower(PlayerOne);
 	char second = tolower(PlayerTwo);
-	RockScissorPaper(first, second);
+	cout << RockScissorPaper(first, second) <<"\n";
+	string input = "The Quick Brown Fox...";
+    cout << ToLower(input)<< "\n";
     return(0);
 }
 
