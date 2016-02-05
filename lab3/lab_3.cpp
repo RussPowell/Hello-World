@@ -234,10 +234,10 @@ return 0;//as I gather, return is for error checking; return 0 if it works, retu
  */
 string ToLower(string input) {
   // CODE HERE
-  string OutPut;
+  cout <<input;
+  string OutPut ="";
   int count = input.length();
-  for (int i = 0; i <= count; i++){
-                                    
+  for (int i = 0; i < count; i++){
   OutPut[i] = tolower(input[i]);
   }
   cout << OutPut;
@@ -285,8 +285,8 @@ int main(){
 	char first = tolower(PlayerOne);
 	char second = tolower(PlayerTwo);
 	cout << RockScissorPaper(first, second) <<"\n";
-	string input = "The Quick Brown Fox...";
-    cout << ToLower(input)<< "\n";
+	string send = "The Quick Brown Fox...";
+    cout << ToLower(send)<< "\n";
     return(0);
 }
 
