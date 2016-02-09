@@ -1,5 +1,9 @@
-lab3test: lab_4.o
-	g++ -Wall -g -o lab4 lab4.o
+lab4test: lab4.o lab4unittest.o
+	g++ -Wall -g -o lab4 lab4.o lab4unittest.o
 
-lab3: lab_4.cpp
+lab4unitttest: lab4unittest.cpp
+	g++ -Wall -g -c lab4unittest.cpp
+	
+lab4: lab4.cpp
 	g++ -Wall -g -c lab4.cpp
+	

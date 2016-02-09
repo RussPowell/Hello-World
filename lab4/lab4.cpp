@@ -21,13 +21,13 @@
  *                  floating-point value
  */
 string MakeString(string label, double value, char separator) {
-  stringstream ss;
-  ss.clear();
-  ss.str("");
-  ss << label << " " << separator << " " << value <<"\n";
-  string NewString;
-  NewString = ss.str();
-  return NewString;
+  stringstream ss;   //create variable-least imaginative name, apologies
+  ss.clear();        //clear the variable of existing junk
+  ss.str();          //define ss as a string-can be initialized, but not required
+  ss << label << " " << separator << " " << value;  //arrange then format the ss variable 
+ // string NewString;  //create 'return' variable
+  //NewString = ss.str();  //assign the contents of ss.str into the 'return' variable
+  return ss.str();  //
 }
 
 /*
@@ -39,22 +39,22 @@ string MakeString(string label, double value, char separator) {
  *                when value is length 0 or value is length > 1
  */
 char StringToChar(string value) {
-  int size = value.length();
-  char cvalue;
-  stringstream converter(value);
-  if( size == 1){
-  try {
-    converter >> cvalue;
-  } catch (ios_base::failure f) {
+  int size = value.length();        //create variable to hold the length of 'value'
+  char cvalue;                      //create variable of type 'char'
+  stringstream converter(value);    //I am unsure how to define what this does
+  if( size == 1){                   //loop through value-if length is only 1, then
+     try {                          
+     converter >> cvalue;           // convert value to cvalue, which is type 'char'
+     }
+     catch (ios_base::failure f) {  //if converter fail, throw 'f' exception
+     }
   }
-}
-else{
-    cvalue = '\0';
-  }
-  return cvalue;
-
-}
-/*
+  else{
+    cvalue = '\0';                   //Based on the logic of the if statement,
+  }                                  //the 'try' will only be called if 'size' is
+  return cvalue; // output           //equal to one (1).  'Else' will be called under
+}                                    //every other circumstance.  In this case, 'else'
+/*                                   // sets cvalue to null.
  * Useful when accepting input from stdin using the getline function.
  * Convert a string containing an expected integer value (such as a string
  * captured from stdin) into an integer. If value is not valid as an integer,
@@ -64,18 +64,16 @@ else{
  * @return int - An integer representing the value, or 0 on failure
  */
 int StringToInt(string value) {
- 
-  int ivalue = 0;
-  stringstream converter(value);
-  converter.exceptions(ios_base::failbit);
+  int ivalue = 0;                           // create int variable-the string will eventually end up here
+  stringstream converter(value);            // declare converter, a variable of type stringstream converter 
+  converter.exceptions(ios_base::failbit);  // checking for exceptions
   try {
-    converter >> ivalue;
-      }
-      catch (ios_base::failure f) {
-      }
+    converter >> ivalue;                    //convert to ivalue
+    }
+  catch (ios_base::failure f) {             //catch exceptions
+    }
   return ivalue;
 }
-
 /*
  * Useful when accepting input from stdin using the getline function.
  * Convert a string containing an expected floating-point value (such as a
@@ -86,19 +84,18 @@ int StringToInt(string value) {
  * @return double - A double representing the value, or 0 on failure
  */
 double StringToDouble(string value) {
-  double dvalue = 0.0;
-  stringstream converter(value);
-  converter.exceptions(ios_base::failbit);
+  double dvalue = 0.0;                    //Basic repeat of above notes 
+  stringstream converter(value);          //variables, objects
+  converter.exceptions(ios_base::failbit);//define how to deal with exceptions
   try {
-    converter >> dvalue;
+    converter >> dvalue;                  // convert content
     }
-    catch (ios_base::failure f){
+    catch (ios_base::failure f){          //catch exception
     }
-    return dvalue;
+    return dvalue;                        //return converted value
 }
-
 /*
-* Useful when accepting input from stdin using the getline function.
+ * Useful when accepting input from stdin using the getline function.
  * Convert a string containing an boolean value (such as a string captured from
  * stdin) into a bool. Return true if the first character is 'T'
  * (case-insensitive), false if the first character is 'F' (case-insensitive),
@@ -107,10 +104,24 @@ double StringToDouble(string value) {
  * @return bool - If the first character is 'T' (case-insensitive) return true.
  *                If the first character is 'F' (case-insensitive) return false.
  *                Return false on anything else.
- *
+ */
 bool StringToBool(string value) {
-  // CODE HERE
-}*/
+  bool bvalue = false;                  //declare bvalue as boolean-
+  for (int i = 0; i<value.length(); i++)
+  {
+    value[i] = tolower(value[i]);
+  }
+  stringstream converter(value);
+  converter.exceptions(ios_base::failbit);
+  try {
+    converter >> std::boolalpha >> bvalue;
+    }
+    catch (ios_base::failure f){
+    }
+    return bvalue;
+}
+  
+/*
 int main(){
      string label = "Temperature";
      double value = 41.7;
@@ -128,6 +139,11 @@ int main(){
      cout << StringToDouble(STCtest) << "\n"; 
      STCtest = "a";
      cout << StringToDouble(STCtest) << "\n"; 
+     STCtest = "TruE";
+     cout << StringToBool(STCtest) << "\n";
+     STCtest = "FaLse";
+     cout << StringToBool(STCtest) << "\n";
+     
      
      return 0;
- }
+ }*/
