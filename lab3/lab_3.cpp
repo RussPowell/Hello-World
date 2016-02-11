@@ -86,60 +86,67 @@ string Goldilocks(string item, int number) {
  * @return int - 1 if player one wins, 2 if player two wins, 3 on a draw,
  *               0 if invalid inputs
  */
-int RockScissorPaper(char player_one, char player_two) {
+int RockScissorPaper(char player_one, char player_two) 
+{
   // player2 MUST USE A SWITCH IN THIS FUNCTION
   // CODE HERE
-
-{
+  const int Player1Winner = 1;
+  const int Player2Winner = 2;
+  const int PlayesTie = 3;
+  const int BadInput = 0;
 		switch (player_one)
 		{
 		case 'r':
 			if (player_two == player_one)
 			{
-				return 3;
+				return BadInput;
 			}
 			else if (player_two == 'p')
 			{
-				return 2;
+				return Player2Winner;
 			}
 			else if (player_two == 'v')
 			{
-				return 2;
+				return Player2Winner;
 			}
 			else if (player_two == 'l')
 			{
-				return 1;
+				return Player1Winner;
 			}
 			else if (player_two == 's')
 			{
-				return 1;
+				return Player1Winner;
 			}
 			else
 			{
-				return 0;
+				return BadInput;
 			}
 			break;
 		case 'p':
 		case 'P':
 			if (player_one == player_two)
 			{
-				return 3;
+				return PlayesTie;
 			}
 			else if (player_two == 's')
 			{
-				return 2;
+				return Player2Winner;
 			}
 			else if (player_two == 'l')
 			{
-				return 2;
+				return Player2Winner;
 			}
 			else if (player_two == 'r')
 			{
-				return 1;
+				return Player1Winner;
 			}
 			else if (player_two == 'v')
 			{
-				return 1;
+				return Player1Winner;
+			}
+			else
+			{
+				return BadInput;
 			}
 			break;
 			
@@ -165,7 +172,6 @@ int RockScissorPaper(char player_one, char player_two) {
 			else if (player_two == 's')
 			{
 				return 1;
-
 			}
 			break;
 		case 'l':
@@ -190,6 +196,10 @@ int RockScissorPaper(char player_one, char player_two) {
 			{
 				return 1;
 			}
+			else
+			{
+				return BadInput;
+			}
 			break;
 		case 'v':
 		case 'V':
@@ -213,35 +223,31 @@ int RockScissorPaper(char player_one, char player_two) {
 			{
 				return 1;
 			}
-			break;
-			default:
+			else
 			{
-				return 0;
-				break;
+				return BadInput;
 			}
-			}
+			break;
 		}
-	  
-			 
-return 0;//as I gather, return is for error checking; return 0 if it works, return 1 if 
+	return 0;
+}		 
+//as I gather, return is for error checking; return 0 if it works, return 1 if 
 	     //it does not.  I cannot get a return of, well anything.
-}
+
 
 /*
  * Return the input string with all characters converted to lowercase.
  * @param string input - The string that will be converted to all lowercase
  * @return string - a string containing the converted input string
  */
-string ToLower(string input) {
+string ToLower(string input) 
+{
   // CODE HERE
-  cout <<input;
-  string OutPut ="";
-  int count = input.length();
-  for (int i = 0; i < count; i++){
-  OutPut[i] = tolower(input[i]);
+  for (int i = 0; i<input.length(); i++)
+  {
+  input[i] = tolower(input[i]);
   }
-  cout << OutPut;
- 	return OutPut;
+  return input;
 }
 
 /*
@@ -287,6 +293,6 @@ int main(){
 	cout << RockScissorPaper(first, second) <<"\n";
 	string send = "The Quick Brown Fox...";
     cout << ToLower(send)<< "\n";
-    return(0);
+    return 0;
 }
 
