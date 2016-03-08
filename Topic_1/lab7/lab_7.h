@@ -19,7 +19,7 @@ using std::endl;
 using std::string;
 using std::map;
 using std::stringstream;
-
+using std::ios_base;
 
 
 /*
