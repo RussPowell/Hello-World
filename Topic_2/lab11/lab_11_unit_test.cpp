@@ -69,7 +69,7 @@ TEST_CASE("Overloaded Binary - Operator") {
     CHECK(diff.cents() == 25);
   }
 }
-/*
+
 TEST_CASE("Overloaded Unary - Operator") {
   SECTION("-Money(123, 45), i.e -$123.45") {
     Money amount(123, 45);
@@ -85,7 +85,7 @@ TEST_CASE("Overloaded Unary - Operator") {
     CHECK(amount.cents() == 25);
   }
 }
-*/
+
 TEST_CASE("Overloaded == Operator") {
   SECTION("Money(10, 55) == Money(10, 55), i.e $10.55 == $10.55") {
     Money amount1(10, 55), amount2(10, 55);
