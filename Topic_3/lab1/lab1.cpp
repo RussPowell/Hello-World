@@ -2,6 +2,8 @@
  * Name        : lab_12.cpp
  * Author      : FILL IN
  * Description : Working with Pointers and Dynamic Variables / Arrays
+ * Links       : https://github.com/RussPowell/Hello-World.git
+ *               https://hello-world-russpowell.c9users.io
  */
 #include "lab1.h"
 

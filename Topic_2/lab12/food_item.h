@@ -2,9 +2,6 @@
  * Name        : food_item.h
  * Author      : Russell Powell
  * Description : Utilizing inheritance
- * Links       : https://github.com/RussPowell/Hello-World.git
- *               https://hello-world-russpowell.c9users.io
- * Sources     : Absolute C++ by Walter Savitch 
  */
  
 #ifndef FOOD_ITEM_H
