@@ -54,18 +54,7 @@
                 RemoveHead();             //removes head only if head exists
             }
         }
-            //clears the entire contents of the list
-            //freeing all memory associated with all nodes
-            
-        unsigned int SLList::size() const
-        {
-            return size_;
-        }
-            //accessor for size_
-        
-        string SLList::ToString() const
-        {
-            stringstream list;              //create stringstream variable list
+        reate stringstream variable list
             if (size_ == 0)  
             {
                 return "";                  //if size is 0, return and empty string   
