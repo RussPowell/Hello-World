@@ -29,7 +29,7 @@
         void SLList::Insert(int contents)
         {
            
-            SLNode* temp = head_                                        //create test node temp
+            SLNode* temp = head_ ;                                       //create test node temp
             SLNode* assist;                                             //create a trailing node
             if ( temp == NULL)
             {
@@ -58,7 +58,8 @@
              
              temp = NULL;                                               //clean up
              delete temp;
-                     }    /*(*NEW*)
+            
+        }    /*(*NEW*)
             --creates a new SLNode with the contents of the parameter and
             inserts it into the correct position in the list. The list
             will be sorted with the lowest values in the front (head) and the
