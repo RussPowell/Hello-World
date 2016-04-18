@@ -55,6 +55,12 @@
             }
         }
         
+        unsigned int SLList::size() const
+        {
+            return size_;                   //returns size
+        }
+            //accessor for size_
+        
        string SLList::ToString() const
         {
              
