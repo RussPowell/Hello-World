@@ -12,11 +12,12 @@ data members:
  
 #ifndef DLList_H
 #define DLList_h
+
 #include <iostream>
 #include <string>
 #include <cstring>
 #include <sstream>
-
+#include "DLNode.h"
 using std::cout;
 using std::endl;
 using std::string;
@@ -29,7 +30,7 @@ class DLList
         
         ~DLList ();                                     // call clear function
         
-        unsigned int getSize () const;                  // return count
+        unsigned int getSize ();                  // return count
         
         void pushFront (int newContents);               // create new DLNode with newContents and attach at head
         
@@ -47,7 +48,7 @@ class DLList
         
         void popFront ();                               //remove current head node; do nothing if list is empty
         
-        void popBack ()                                 //remove current tail node; do nothing if list is empty
+        void popBack ();                                //remove current tail node; do nothing if list is empty
         
         bool removeFirst (int target);                  //remove the first instance of a DLNode containing target; do nothing if target is not found
         
@@ -55,7 +56,7 @@ class DLList
         
         void clear ();                                  //clear all nodes from list, reset count to zero, set head and tail to NULL
         
-        friend ostream& operator<< (ostream& out, const DLList& src);
+        friend std::ostream& operator << (std::ostream& out, const DLList& src);
                                                         //display the contents of each node in the list, formatted per the program specification ("NUM1,NUM2,NUM3,...,NUMX"), to the output stream out
 
     private:
