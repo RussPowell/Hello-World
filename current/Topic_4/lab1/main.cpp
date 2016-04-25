@@ -1,20 +1,31 @@
-/*
- * Name        : Mmin.cpp
- * Author      : Russell Powell
- * Description : Main for lab1, topic 4
- * Links       : https://github.com/RussPowell/Hello-World.git
- *               https://hello-world-russpowell.c9users.io
- */
- 
- #include "lab1.h"
- 
- int main()
- {
-     for (int i = 5; i < 21; i++)
-     {  
-       decToBin(i);
-       cout << i;
-     }
+#include "lab_recursion.h"
+
+int main()
+{
     
-     return 0;
- }
+   int btd;
+	
+    for (int i = 1; i <11; i++)
+    {
+        cout << decToBin(i) << "\n";
+    }
+    
+btd =01;     //1
+cout << binToDec(btd) << "\n";
+
+btd = 0011;     //2
+cout << binToDec(btd) << "\n";
+/*
+btd = 0011;     //3
+cout << binToDec(btd) << "\n";
+
+btd = 0100;     //4
+cout << binToDec(btd) << "\n";
+
+btd = 0101;     //5
+cout << binToDec(btd) << "\n";
+
+btd = 0110;     //
+cout << binToDec(btd) << "\n";
+*/
+}

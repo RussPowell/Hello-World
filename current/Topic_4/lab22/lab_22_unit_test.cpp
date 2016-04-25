@@ -6,7 +6,7 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
-#include "lab2.h"
+#include "lab_22.h"
 
 TEST_CASE("Decimal To Binary") {
 	
