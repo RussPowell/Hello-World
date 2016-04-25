@@ -17,10 +17,7 @@
      unsigned int size;
      bool userContinue = true;
      
-     while (userContinue)
-     {
-      
-     }
+    
      color = "blue";
      digit = 42;
      size = 99;
