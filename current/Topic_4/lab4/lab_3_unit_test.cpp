@@ -10,7 +10,7 @@
 #include <cstddef>
 #include "bs_tree.h"
 // To test for correct header guards
-#include "BST_node.h"
+#include "bst_node.h"
 
 
 //1

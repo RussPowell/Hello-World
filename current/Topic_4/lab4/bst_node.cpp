@@ -7,7 +7,7 @@
  * Description : Creating a tree
  */
 
-#include "BST_node.h"
+#include "bst_node.h"
 #include "bs_tree.h"
 
 

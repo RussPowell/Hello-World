@@ -1,5 +1,12 @@
-
- #include "BST_node.h"
+/*
+ * Name        : BST_node.cpp
+ * Author      : Russell Powell
+ * Links       : https://github.com/RussPowell/Hello-World.git
+ *                https://hello-world-russpowell.c9users.io
+ *
+ * Description : Creating a tree
+ */
+ #include "bst_node.h"
  #include "bs_tree.h"
  
  
@@ -83,8 +90,7 @@ bool BSTree::Insert(int inContents, BSTNode*& newRoot)
 
 void BSTree::Clear(BSTNode*& root)
 {
-    //root = root_;
-    if (root_ != NULL)                              //base case, root is null
+     if (root_ != NULL)                              //base case, root is null
     {                                               
         if(root->left_child() != NULL)              //if the left node is not null
         {                                           
