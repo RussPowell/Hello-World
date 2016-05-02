@@ -6,3 +6,6 @@ lab1unitttest: sl_unit_test.cpp
 	
 SLNode: sl_node.cpp
 	g++ -Wall -g -c sl_node.cpp
+
+clean:
+	rm *.o slnode
