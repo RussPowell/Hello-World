@@ -6,10 +6,10 @@
  *
  * Description : Creating a tree
  */
- #include "BST_node.h"
+ #include "bst_node.h"
  #include "bs_tree.h"
  
- 
+//public           everything between here and 'private' below is commented in the .h file 
 BSTree::BSTree()
 {
     root_ = NULL;
@@ -60,8 +60,9 @@ bool BSTree::Insert(int inContents, BSTNode*& newRoot)
     {
         BSTNode* temp_ = new BSTNode(inContents);
         newRoot=temp_;
-        size_ ++;                                   //increase size
-        return true;
+        size_ ++;                                    //increase size
+        return true;     
+ 
     }
     
     if(newRoot->contents() == inContents)           // check for duplicates->teminate if found
@@ -131,7 +132,6 @@ string BSTree::InOrder(BSTNode*& output)
         {
             ss << InOrder(output->left_child());
         }
-        
         ss << output->contents() << " ";        //each check captures contents and calls the 
                                                 //the function on the next child
         if(output->right_child() != NULL)       //This will output the entire node in order
@@ -145,73 +145,100 @@ string BSTree::InOrder(BSTNode*& output)
     return "";
     }
 }
+                
+    
+    
+    
+                
                                 //Recieves contents and root_
-bool BSTree::Remove(int contents, BSTNode*& tempRoot){
-    if(tempRoot == NULL)
+bool BSTree::Remove(int contents, BSTNode*& tempRoot)
+{
+    
+    if(tempRoot == NULL)                                    //check for empty list
     { 
-        return false;
+        return false;                                       //does nothing
     }
-    if (tempRoot->contents() == contents)//Base Node
+    if (tempRoot -> contents() > contents)                  //checking contents for inequalities
+    {                                                       //working through the list till it finds
+        Remove(contents, tempRoot->left_child());           //the target, or finishes the list
+    }
+    else if (tempRoot -> contents() < contents)
     {
-        BSTNode* hold = new BSTNode(contents);
-
-        FindMin(tempRoot->right_child());
-        hold-> contents() = tempRoot->contents();
-        hold = NULL;
-        delete hold;
-        tempRoot = NULL;
-        delete tempRoot;
-        size_--;
-        
-        
-        return true;
+        Remove(contents, tempRoot->right_child());
     }
-    else if (tempRoot->contents() > contents)
-    {
-        if (tempRoot->right_child() != NULL)
+    else if (tempRoot -> contents() == contents)                                         //Base Node
+    { 
+        //no children
+        if(tempRoot->left_child() == NULL && tempRoot->right_child() == NULL)
         {
-            return Remove(contents, tempRoot->right_child());
+            delete tempRoot;
+            tempRoot = NULL;
+            size_--;                        //This will handle any node with no children, including root_ 
+            return true;
         }
-        else 
+        //two children
+        else if (tempRoot -> left_child() != NULL && tempRoot -> right_child() != NULL)
         {
-            return false;
+            int toReplace = FindMin(tempRoot->right_child());       //create and fill a variable to contain the result
+            tempRoot -> set_contents(toReplace);                    //of FindMin
+            return Remove(toReplace, tempRoot->right_child());      //use the new variable in the subsequent call of Remove
         }
-    }
+        //one child, to the right
+        else if(tempRoot->left_child() == NULL && tempRoot->right_child() != NULL)
+        {   
+            int toReplace = FindMin(tempRoot->right_child());   //enters Findmin at the rightchild node, findmin will track left from 
+            tempRoot -> set_contents(toReplace);                //there to find the smallest large contents and replace the deleted node
+            return Remove(toReplace, tempRoot -> right_child());//with those contents
+        }
+        //one child to the left
+        else if (tempRoot->right_child() == NULL && tempRoot->left_child() != NULL)
+        {
+            root_ = tempRoot->left_child();                 //point root at tempRoots left child
+            size_--;                                        //decrement size
+            return true;                                    //return true
+        }//this feels like a lot is left leaking. however, everything I tried to do to avoid that resulted in 
+    }    //a segfault or a sigabrt as well as multiple failed assertions
     else
     {
-        if (tempRoot->left_child() != NULL)
-        {
-            return Remove(contents, tempRoot->left_child());
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
+}
     
+int BSTree::FindMin(BSTNode* find) const
+{
      
+       if(find->left_child() != NULL)
+       {
+      return FindMin(find->left_child());          //follows the string of nodes left until it reaches the smallest large node
+       }
+       else //does not work for one child, left. will return the smallest small value available
+       {
+           return find->contents();                 //returns it via the contents function
+       }
+}     
+     
+/*     
+int BSTree::FindMax(BSTNode* find) const
+{
+     
+       if(find->rightt_child() != NULL)
+       {                                                    //this is unrequired code
+       return FindMin(find->rightt_child());                //However in the event that the node to be replaced
+       }                                                    //has one child on the left, this will search out the 
+       else                                                 //largest small node available and use it to fill the void
+       {                                                    //in the removed node
+           return find->contents();
+       }
 }
-    
-int BSTree::FindMin(BSTNode* find) const{
-       if (find == NULL)
-       {
-           return 0;
-       }
-       if (find->left_child() != NULL)
-       {
-           return FindMin(find->left_child());
-       }
-       else if (find->right_child() != NULL)
-       {
-           return FindMin(find->right_child());
-       }
-       else
-       {
-           return Remove(find->contents(),find);
-       }
-}
+*/
 
- /*
+
+
+
+//also unnecessary, this will print 
+//the contents in reverse order
+
+/*
  if(output->right_child() != NULL)
         {
             ss << InOrder(output->right_child());
@@ -222,7 +249,7 @@ int BSTree::FindMin(BSTNode* find) const{
             ss << InOrder(output->left_child());
         }
         return ss.str();
-        */
+*/       
         
         
         

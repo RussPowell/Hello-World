@@ -23,7 +23,7 @@ class Box
         Box();
         Box(T newContents);
         
-
+ 
         void setContents(T newContents);
         T getContents() const;
         

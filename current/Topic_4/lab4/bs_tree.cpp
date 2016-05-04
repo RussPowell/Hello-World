@@ -104,7 +104,7 @@ void BSTree::Clear(BSTNode*& root)
         root = NULL;                                //point to null
         size_--;                                    //decrement size
         return Clear(root_);                        //call the clear(root_)
-    }//this function will continue to run until all nodes are cleared including THE root
+    }//this function will continue to run until all nodes are cleared including THE root_
     
 } 
 

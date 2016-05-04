@@ -9,7 +9,7 @@
 #ifndef BSTREE_H
 #define BSTREE_F
  
-#include "BST_node.h"
+#include "bst_node.h"
 #include <fstream>
 #include <iostream>
 #include <map>
