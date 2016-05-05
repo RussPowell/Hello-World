@@ -5,7 +5,7 @@
  *                https://hello-world-russpowell.c9users.io
  *
  * Description : Creating a tree
- */
+ */ 
  #include "bst_node.h"
  #include "bs_tree.h"
  
@@ -186,14 +186,24 @@ bool BSTree::Remove(int contents, BSTNode*& tempRoot)
         //one child, to the right
         else if(tempRoot->left_child() == NULL && tempRoot->right_child() != NULL)
         {   
-            int toReplace = FindMin(tempRoot->right_child());   //enters Findmin at the rightchild node, findmin will track left from 
-            tempRoot -> set_contents(toReplace);                //there to find the smallest large contents and replace the deleted node
-            return Remove(toReplace, tempRoot -> right_child());//with those contents
+             BSTNode* temp = tempRoot;
+            tempRoot = tempRoot->right_child();
+            delete temp;                                //point root at tempRoots left child
+            temp = NULL;
+            size_--;                                        //decrement size
+            return true;
+            // int toReplace = FindMin(tempRoot->right_child());   //enters Findmin at the rightchild node, findmin will track left from 
+            // tempRoot -> set_contents(toReplace);                //there to find the smallest large contents and replace the deleted node
+            // return Remove(toReplace, tempRoot -> right_child());//with those contents
         }
         //one child to the left
         else if (tempRoot->right_child() == NULL && tempRoot->left_child() != NULL)
         {
-            root_ = tempRoot->left_child();                 //point root at tempRoots left child
+            BSTNode* temp = tempRoot;
+            tempRoot = tempRoot->left_child();
+            delete temp;                                //point root at tempRoots left child
+            temp = NULL;
+            
             size_--;                                        //decrement size
             return true;                                    //return true
         }//this feels like a lot is left leaking. however, everything I tried to do to avoid that resulted in 
