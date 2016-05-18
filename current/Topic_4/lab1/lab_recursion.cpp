@@ -29,24 +29,19 @@
 
 unsigned int binToDec(int num)
 {
-	
-	unsigned int total = 0;
-	unsigned int base = 1;
-	if (num > 0)
-	{													
-		if(num%2 != 0)
-		{										
-			total = total + base;
-			base *= 2;
-			return  total + binToDec(num/10);
+	stringstream num_String;
+	num_String << num;
+	string num_string = num_String.str();
+	int total;
+	int i = 1;
+	if(i < num_string.length())
+	{
+		if(num_string[i-1] == '1')
+		{
+			total = pow(2, i);
 		}
-			
-		else
-		{										
-			base *= 2;
-			return  total + binToDec(num/10);
-		}
+		i++;
+		return total + binToDec(0);
 	}
 	return total;
-}	
-   
+}

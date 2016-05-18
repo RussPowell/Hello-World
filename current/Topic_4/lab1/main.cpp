@@ -5,15 +5,15 @@ int main()
     
    int btd;
 	
-    for (int i = 1; i <11; i++)
+    for (int i = 1; i < 11; i++)
     {
         cout << decToBin(i) << "\n";
     }
     
-btd =01;     //1
-cout << binToDec(btd) << "\n";
+// btd =01;     //1
+// cout << binToDec(btd) << "\n";
 
-btd = 0011;     //2
+btd = 1010;     //2
 cout << binToDec(btd) << "\n";
 /*
 btd = 0011;     //3

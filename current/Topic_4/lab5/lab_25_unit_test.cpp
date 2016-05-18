@@ -11,8 +11,8 @@
 #include "bs_tree.h"
 // To test for correct header guards
 #include "bst_node.h"
-//#include "bs_tree.h"
-//#include "bst_node.h"
+#include "bs_tree.h"
+#include "bst_node.h"
 
 TEST_CASE("Default Constructor for BSTNode") {
   const BSTNode const_node;
