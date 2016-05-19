@@ -1,6 +1,10 @@
 /*
  * Name        : lab_27.cpp
- * Author      : YOUR NAME
+ * Author      : Russell Powell
+ * Links       : https://github.com/RussPowell/Hello-World.git
+ *               https://hello-world-russpowell.c9users.io
+ * Helpful     : Mike, Phillip, and Walter
+ * Reference   : Cplusplus.com
  * Description : Using the STL
  */
 
