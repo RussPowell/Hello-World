@@ -1,0 +1,17 @@
+C
+# fred
+O
+E
+I hello
+O
+N
+G hello
+I HELLO
+G hello
+N
+F hello
+F goodbye
+R hello
+N
+X
+D

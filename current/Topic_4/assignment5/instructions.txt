@@ -1,0 +1,11 @@
+Any line of the file that starts with a # is a comment – ignore
+Create tree: C
+Clear tree: X
+Delete tree: D
+Insert word: I word
+Find word: F word
+Remove word: R word
+Get word: G word
+Show number of nodes in the tree: N
+In-order print: O
+Reverse in-order print: E
